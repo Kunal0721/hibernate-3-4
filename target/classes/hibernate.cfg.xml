@@ -18,6 +18,7 @@
 		<mapping class="entity.Student" />
 		<mapping class="entity.Doctor" />
 		<mapping class="entity.Account" />
+		<mapping class="entity.Person" />
 
 
 	</session-factory>
