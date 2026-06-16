@@ -19,6 +19,7 @@
 		<mapping class="entity.Doctor" />
 		<mapping class="entity.Account" />
 		<mapping class="entity.Person" />
+		<mapping class="entity.Customers" />
 
 
 	</session-factory>

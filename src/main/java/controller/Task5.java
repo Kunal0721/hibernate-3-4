@@ -3,25 +3,25 @@ package controller;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
-import entity.Person;
+import entity.Student;
 
 public class Task5 {
 	public static void main(String[] args) {
-		
+
 		Configuration config = new Configuration().configure("hibernate.cfg.xml");
 		SessionFactory sf = config.buildSessionFactory();
 		Session s = sf.openSession();
 		s.beginTransaction();
-		
-//		List<Person> list = s.createQuery("from person", Person.class).list();
-//		list.stream().forEach(a -> System.out.println(a));
-	
-		Person pr = s.get(Person.class, 2);
-		s.remove(pr);
-			
+
+		Query<Student> q = s.createQuery(" from Student where age=:age ", Student.class);
+		q.setParameter("age", 19);
+
+		q.list().stream().forEach(System.out::println);
+
 		s.getTransaction().commit();
-		s.close(); 
+		s.close();
 		sf.close();
 	}
 }
