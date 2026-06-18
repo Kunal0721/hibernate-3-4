@@ -1,10 +1,12 @@
 package entity;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,6 +27,9 @@ public class Person {
 	@Email(message = "invalid email")
 	@Column(nullable = false, unique = true)
 	private String email;
+	
+	@OneToOne(mappedBy = "person", cascade = CascadeType.ALL)
+	private Passport passport;
 
 	public Person(String name, int age, @Email(message = "invalid email") String email) {
 		super();

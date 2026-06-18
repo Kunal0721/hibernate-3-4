@@ -20,7 +20,9 @@
 		<mapping class="entity.Account" />
 		<mapping class="entity.Person" />
 		<mapping class="entity.Customers" />
-
-
+		<mapping class="entity.Passport" />
+		<mapping class="entity.Book" />
+		<mapping class="entity.Library" />
+	
 	</session-factory>
 </hibernate-configuration>
